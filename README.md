@@ -8,8 +8,8 @@ I route the plaid sample data into a Firestore database.
 
 ## Requirements
 
--   Plaid API keys - Sign up for a free Sandbox account if you don't already have one
--   [Sign up for a free ngrok account](https://dashboard.ngrok.com/signup) to obtain an authtoken
+-   Obtain Plaid API keys from a developer account
+-   Obtain an authtoken from ngrok
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ I route the plaid sample data into a Firestore database.
 
 2. Update the `ngrok.yml` file in the ngrok folder with your ngrok authtoken. 
 
-1. You will also need to configure an allowed redirect URI for your client ID through the Plaid developer dashboard.
+1. Configure an allowed redirect URI for your client ID through the Plaid developer dashboard.
 
 1. Start the services. 
     ```shell
@@ -74,7 +74,7 @@ COPY ["localhost-key.pem", "/opt/client"]
 COPY ["localhost.pem", "/opt/client"]
 ```
 
-Finally, in the wait-for-client.sh file in the main pattern folder, replace this line on line 6
+Finally, in the wait-for-client.sh file in the main folder, replace this line on line 6
 
 ```bash
 while [ "$(curl -s -o /dev/null -w "%{http_code}" -m 1 localhost:3001)" != "200" ]
@@ -86,7 +86,7 @@ with this line instead:
 while [ "$(curl -s -o /dev/null -w "%{http_code}" -m 1 https://localhost:3001)" != "200" ]
 ```
 
-After starting up the Pattern sample app, you can now view it at https://localhost:3001.
+You can now view it at https://localhost:3001.
 
 ## Architecture
 
